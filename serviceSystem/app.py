@@ -6,6 +6,12 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
+@app.route('/landing')
+def hello_world3():
+    return render_template('landing.html')
+@app.route('/generic')
+def hello_world4():
+    return render_template('generic.html')
 
 @app.route('/user/<username>')
 def show_user_profile(username):
