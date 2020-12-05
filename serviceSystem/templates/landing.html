@@ -12,7 +12,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="static/assets/css/main.css" />
       <noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
-      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae1e4022ea1efb6f6418f67f1026cbbb"></script>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae1e4022ea1efb6f6418f67f1026cbbb&libraries=services"></script>
+
    </head>
 
    <body class="is-preload">
@@ -23,7 +24,7 @@
             <!-- Header -->
             <!-- Note: The "styleN" class below should match that of the banner element. -->
                <header id="header" class="alt style2">
-                  <a href="index.html" class="logo"><strong>Open</strong> <span>Here</span></a>
+                  <a href="/index" class="logo"><strong>Open</strong> <span>Here</span></a>
                   <nav>
                      <a href="#menu">Menu</a>
                   </nav>
@@ -32,10 +33,10 @@
             <!-- 메뉴 -->
                <nav id="menu">
                   <ul class="links">
-                     <li><a href="index.html">홈</a></li>
-                     <li><a href="landing.html">조건 입력</a></li>
-                     <li><a href="generic.html">결과 보기</a></li>
-                     <li><a href="elements.html">기타</a></li>
+                     <li><a href="/index">홈</a></li>
+                     <li><a href="/landing">조건 입력</a></li>
+                     <li><a href="/generic">결과 보기</a></li>
+                     <li><a href="/elements">기타</a></li>
                   </ul>
                </nav>
 
@@ -76,9 +77,10 @@
                                    </header>
                                    <p>서울특별시 내, 관심있는 10개의 지역을 지도에서 클릭해주세요.<br>클릭할 때마다 행정동 단위로 빈 칸에 기록됩니다.<br>선택이 완료된 후에는 '입력' 버튼을 클릭해 주세요.</p>
                                    <div id="clickLatlng"></div>
-                                   <p><input type="text" name="name" id="local" /></p>
+                                    <div id="position"></div>
+<!--                                   <p><input type="text" name="name" id="local" /></p>-->
                                    <ul class="actions">
-                                       <li><a href="generic.html" class="button">입력</a></li>
+                                       <li><a href="/result" class="button">입력</a></li>
                                    </ul>
                                </div>
                            </div>
@@ -113,7 +115,7 @@
                    <!-- Five -->
                    <section id="five" class="spotlights">
                        <section>
-                           <a href="generic.html" class="image">
+                           <a href="/generic" class="image">
                                <img src="images/pic08.jpg" alt="" data-position="center center" />
                            </a>
                            <div class="content">
@@ -123,7 +125,7 @@
                                    </header>
                                    <p>Google Maps Place API에서 식별가능한 업종들을 중심으로 예시를 들어, 입력된 값을 결과 창에서 활용</p>
                                    <ul class="actions">
-                                       <li><a href="generic.html" class="button">Learn more</a></li>
+                                       <li><a href="/generic" class="button">Learn more</a></li>
                                    </ul>
                                </div>
                            </div>
@@ -143,11 +145,13 @@
                   <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng( 37.52982991680636, 126.98310899794774 ), // 지도의 중심좌표
+        level: 7 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+var arr = [];
+var geocoder = new kakao.maps.services.Geocoder();
 
 // 지도를 클릭한 위치에 표출할 마커입니다
 var marker = new kakao.maps.Marker({
@@ -160,20 +164,43 @@ marker.setMap(map);
 // 지도에 클릭 이벤트를 등록합니다
 // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
 
+        if (status === kakao.maps.services.Status.OK) {
+            var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+          // var testh=document.getElementById('test');
+            //testh.innerHTML=detailAddr;
     // 클릭한 위도, 경도 정보를 가져옵니다
-    var latlng = mouseEvent.latLng;
+            var latlng = mouseEvent.latLng;
 
     // 마커 위치를 클릭한 위치로 옮깁니다
     marker.setPosition(latlng);
+marker.setMap(map);
+   // var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    //message += '경도는 ' + latlng.getLng() + ' 입니다';
 
-    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    //var resultDiv = document.getElementById('clickLatlng');
+    //resultDiv.innerHTML = message;
+    arr.push( result[0].address.region_3depth_name);
+    var positionDiv=document.getElementById('position');
+    positionDiv.innerHTML=arr;
 
-    var resultDiv = document.getElementById('clickLatlng');
-    resultDiv.innerHTML = message;
 
+    console.log(result[0]);
+   var c= document.name.value;
+
+   c=arr;
+
+
+
+}
+    });
 });
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+}
 </script>
 
    </body>
