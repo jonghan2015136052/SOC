@@ -12,6 +12,10 @@ def hello_world3():
 @app.route('/generic')
 def hello_world4():
     return render_template('generic.html')
+@app.route('/result')
+def hello_world5():
+    return ("일단은 이렇게 나옴 ")
+    # return render_template('generic.html')
 
 @app.route('/user/<username>')
 def show_user_profile(username):
