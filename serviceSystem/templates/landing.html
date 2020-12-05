@@ -7,13 +7,14 @@
 -->
 <html>
    <head>
-      <title>Openhere - Forty by HTML5 UP</title>
+      <title>Openhere - 창업입지 선정 서비스</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="static/assets/css/main.css" />
       <noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae1e4022ea1efb6f6418f67f1026cbbb"></script>
    </head>
+
    <body class="is-preload">
 
       <!-- Wrapper -->
@@ -28,7 +29,7 @@
                   </nav>
                </header>
 
-            <!-- Menu -->
+            <!-- 메뉴 -->
                <nav id="menu">
                   <ul class="links">
                      <li><a href="index.html">홈</a></li>
@@ -48,85 +49,86 @@
                      <header class="major">
                         <h1>조건 입력</h1>
                      </header>
-                     <div class="content">
-                        <p>창업주님, 안녕하십니까?</p>
-                     </div>
                   </div>
                </section>
 
             <!-- Main -->
                <div id="main">
 
-                  <!-- One -->
-                     <section id="one">
-                        <div class="inner">
+                   <!-- One -->
+                   <section id="one">
+                       <div class="inner">
                            <header class="major">
-                              <h2>관심 지역 : </h2>
+                               <h2>관심 지역 : </h2>
                            </header>
-                           <p>관심 지역을 동 단위로 입력해주세요.</p>
-                  <input type="text" name="name" id="local" />
-                           <ul class="actions">
-                                    <li><a class="button">입력</a></li>
-                           </ul>
-                        </div>
-                     </section>
+                           <p>10개의 관심 지역을 아래 지도에서 클릭해주세요.</p>
+                       </div>
+                   </section>
 
                   <!-- Two -->
-                     <section id="two" class="spotlights">
-                        <section>
-<!--                           <a href="generic.html" class="image">-->
-<!--                              <img src="images/pic08.jpg" alt="" data-position="center center" />-->
-<!--                           </a>-->
-                           <div id="map" style="width:100%;height:350px;"></div>
-
-
-
+                   <section id="two" class="spotlights">
+                       <section>
+                           <div id="map" style="width:100%;height:430px;"></div>
                            <div class="content">
-                              <div class="inner">
-                                 <header class="major">
-                                    <h3>Google Maps 들어갈 자리</h3>
-                                 </header>
-                                 <p>다른 기능은 필요없고, 지도만 단순히 Display 해줌. 사용자가 시각적으로 지도상 해당 지역을 드래그 하며 찾을 수 있도록. </p>
-                                 <div id="clickLatlng"></div>
-                                 <ul class="actions">
-                                    <li><a href="generic.html" class="button">Learn more</a></li>
-                                 </ul>
-                              </div>
+                               <div class="inner">
+                                   <header class="major">
+                                       <h3>10개의 마커를 클릭</h3>
+                                   </header>
+                                   <p>서울특별시 내, 관심있는 10개의 지역을 지도에서 클릭해주세요.<br>클릭할 때마다 행정동 단위로 빈 칸에 기록됩니다.<br>선택이 완료된 후에는 '입력' 버튼을 클릭해 주세요.</p>
+                                   <div id="clickLatlng"></div>
+                                   <p><input type="text" name="name" id="local" /></p>
+                                   <ul class="actions">
+                                       <li><a href="generic.html" class="button">입력</a></li>
+                                   </ul>
+                               </div>
                            </div>
-                        </section>
-                </section>
+                       </section>
+                   </section>
 
-                <section id="three">
-                        <div class="inner">
+                   <!-- Three -->
+                   <section id="three">
+                       <div class="inner">
                            <header class="major">
-                              <h2>희망 업종 : </h2>
+                               <h2>추천 순위 : </h2>
+                           </header>
+                           <p>선택하신 10개의 지역들 간의 추천 순위를 1위부터 나열합니다.</p>
+                           <p>1위 : <br>2위 : <br>3위 : <br>4위 : <br>5위 : <br>6위 : <br>7위 : <br>8위 : <br>9위 : <br>10위 : </p>
+                       </div>
+                   </section>
+
+                   <!-- Four -->
+                   <section id="four">
+                       <div class="inner">
+                           <header class="major">
+                               <h2>희망 업종 : </h2>
                            </header>
                            <p>희망 업종의 대분류를 입력해주세요.</p>
-                  <input type="text" name="name" id="food" />
+                           <input type="text" name="name" id="food" />
                            <ul class="actions">
-                                    <li><a class="button">입력</a></li>
+                               <li><a class="button">입력</a></li>
                            </ul>
-                        </div>
-                     </section>
+                       </div>
+                   </section>
 
-                      <section id="four" class="spotlights">
-                        <section>
+                   <!-- Five -->
+                   <section id="five" class="spotlights">
+                       <section>
                            <a href="generic.html" class="image">
-                              <img src="images/pic08.jpg" alt="" data-position="center center" />
+                               <img src="images/pic08.jpg" alt="" data-position="center center" />
                            </a>
                            <div class="content">
-                              <div class="inner">
-                                 <header class="major">
-                                    <h3>업종 예시 들어갈 자리</h3>
-                                 </header>
-                                 <p>Google Maps Place API에서 식별가능한 업종들을 중심으로 예시를 들어, 입력된 값을 결과 창에서 활용</p>
-                                 <ul class="actions">
-                                    <li><a href="generic.html" class="button">Learn more</a></li>
-                                 </ul>
-                              </div>
+                               <div class="inner">
+                                   <header class="major">
+                                       <h3>업종 예시 들어갈 자리</h3>
+                                   </header>
+                                   <p>Google Maps Place API에서 식별가능한 업종들을 중심으로 예시를 들어, 입력된 값을 결과 창에서 활용</p>
+                                   <ul class="actions">
+                                       <li><a href="generic.html" class="button">Learn more</a></li>
+                                   </ul>
+                               </div>
                            </div>
-                        </section>
-                </section>
+                       </section>
+                   </section>
 
 
 
