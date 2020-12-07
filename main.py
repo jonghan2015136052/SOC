@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 
-import datamodel as f
 app = Flask(__name__)
 
 @app.route('/index')
