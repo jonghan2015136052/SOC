@@ -33,9 +33,15 @@ def show_post(post_id):
 
 @app.route('/method', methods=['GET', 'POST'])
 def method():
-    arr=request.form.get('demo-name')
-    print(arr)
-    return arr
+    if request.method=='POST':
+        pass
+    elif request.method=='GET':
+        temp=request.args.get('demo-name')
+        print(temp)
+        return (temp)
+    #arr=request.form.get('demo-name')
+    # print(arr)
+    # return arr
 
 if __name__ == '__main__':
     app.run()
