@@ -29,7 +29,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/MTA/01.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.main">
     <configuration name="01" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="serviceSystem" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,8 +93,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="serviceSystem" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.01" />
       </list>
@@ -142,29 +164,37 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1607321035962" />
-    <state width="617" height="126" key="GridCell.Tab.0.bottom" timestamp="1607327229993">
+    <state width="617" height="126" key="GridCell.Tab.0.bottom" timestamp="1607332541501">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="617" height="126" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1607327229993" />
-    <state width="617" height="126" key="GridCell.Tab.0.center" timestamp="1607327229991">
+    <state width="617" height="126" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1607332541501" />
+    <state width="617" height="126" key="GridCell.Tab.0.center" timestamp="1607332541500">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="617" height="126" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1607327229991" />
-    <state width="617" height="126" key="GridCell.Tab.0.left" timestamp="1607327229991">
+    <state width="617" height="126" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1607332541500" />
+    <state width="617" height="126" key="GridCell.Tab.0.left" timestamp="1607332541499">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="617" height="126" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1607327229991" />
-    <state width="617" height="126" key="GridCell.Tab.0.right" timestamp="1607327229992">
+    <state width="617" height="126" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1607332541499" />
+    <state width="617" height="126" key="GridCell.Tab.0.right" timestamp="1607332541500">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="617" height="126" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1607327229992" />
+    <state width="617" height="126" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1607332541500" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1604417236514">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1604417236514" />
-    <state x="333" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1607168355145">
+    <state x="333" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1607332032064">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="333" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1607168355145" />
+    <state x="333" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1607332032064" />
+    <state x="-7" y="0" width="653" height="687" key="dock-window-1" timestamp="1607332452683">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="-7" y="0" width="653" height="687" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1607332452683" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1607331811737">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1607331811737" />
   </component>
 </project>
