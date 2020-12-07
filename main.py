@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 
-import datamodel as f
 app = Flask(__name__)
 
 @app.route('/index')
@@ -31,4 +30,4 @@ def show_post(post_id):
     return 'Post %d' % post_id
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host = "0.0.0.0")
