@@ -1,0 +1,178 @@
+
+<!DOCTYPE HTML>
+<!--
+   Forty by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+   <head>
+      <title>Openhere - 창업입지 선정 서비스</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="static/assets/css/main.css" />
+      <noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae1e4022ea1efb6f6418f67f1026cbbb&libraries=services"></script>
+
+   </head>
+
+   <body class="is-preload">
+
+      <!-- Wrapper -->
+         <div id="wrapper">
+
+            <!-- Header -->
+            <!-- Note: The "styleN" class below should match that of the banner element. -->
+               <header id="header" class="alt style2">
+                  <a href="/index" class="logo"><strong>Open</strong> <span>Here</span></a>
+                  <nav>
+                     <a href="#menu">Menu</a>
+                  </nav>
+               </header>
+
+            <!-- 메뉴 -->
+               <nav id="menu">
+                  <ul class="links">
+                     <li><a href="/index">홈</a></li>
+                     <li><a href="/landing">조건 입력</a></li>
+                     <li><a href="/generic">결과 보기</a></li>
+                     <li><a href="/elements">기타</a></li>
+                  </ul>
+               </nav>
+
+            <!-- Banner -->
+            <!-- Note: The "styleN" class below should match that of the header element. -->
+               <section id="banner" class="style2">
+                  <div class="inner">
+                     <span class="image">
+                        <img src="images/pic07.jpg" alt="" />
+                     </span>
+                     <header class="major">
+                        <h1>선정 결과</h1>
+                     </header>
+                  </div>
+               </section>
+
+            <!-- Main -->
+               <div id="main">
+
+                   <!-- One -->
+                   <section id="one" class="spotlights">
+                       <div class="inner">
+                           <header class="major">
+                               <h2>추천 순위 : </h2>
+                           </header>
+                           <p>선택하신 10개의 지역들 간의 추천 순위를 1위부터 나열합니다.</p>
+                           <p>1위 : <br>2위 : <br>3위 : <br>4위 : <br>5위 : <br>6위 : <br>7위 : <br>8위 : <br>9위 : <br>10위 : </p>
+                       </div>
+                   </section>
+
+                  <!-- Two -->
+                   <section id="three" class="spotlights">
+                       <section>
+                           <div class="content">
+                               <div class="inner">
+                                   <header class="major">
+                                       <h3>희망 업종 입력</h3>
+                                   </header>
+                                   <p>창업을 희망하는 점포의 업종을 입력해 주세요.<br>"동 단위 지역명 + 희망업종"의 형태로 입력해 주시면 됩니다.</p>
+                                   <form method="GET" action="/method">
+                                   <input type="text" name="demo-name" id="demo-name" value="" placeholder="EX) 방배동 카페, 화곡동 돈가스, 남영동 삼겹살, 상도동 주유소, 창동 서점 등" style="margin-bottom: 20px;"/>
+                                   <div id="clickLatlng"></div>
+                                    <div id="position"></div>
+<!--                                   <p><input type="text" name="name" id="local" /></p>-->
+                                   <ul class="actions">
+                                       <li><button style="padding-">입력</button></li>
+<!--                                       <li><a  class="button" style ="padding-">입력</a></li>&lt;!&ndash;href="/method"&ndash;&gt;-->
+                                   </ul>
+                                   </form>
+                               </div>
+                           </div>
+                       </section>
+                   </section>
+
+                   <!-- Four -->
+                   <section id="four" class="spotlights">
+                       <div class="content">
+                           <section>
+                           <div id="map" style="width:100%;height:500px;"></div></section>
+                       </div>
+                   </section>
+
+
+
+
+
+      <!-- Scripts -->
+         <script src="static/assets/js/jquery.min.js"></script>
+         <script src="static/assets/js/jquery.scrolly.min.js"></script>
+         <script src="static/assets/js/jquery.scrollex.min.js"></script>
+         <script src="static/assets/js/browser.min.js"></script>
+         <script src="static/assets/js/breakpoints.min.js"></script>
+         <script src="static/assets/js/util.js"></script>
+         <script src="static/assets/js/main.js"></script>
+                  <script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
+        center: new kakao.maps.LatLng( 37.52982991680636, 126.98310899794774 ), // 지도의 중심좌표
+        level: 7 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+var arr = [];
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 지도를 클릭한 위치에 표출할 마커입니다
+var marker = new kakao.maps.Marker({
+    // 지도 중심좌표에 마커를 생성합니다
+    position: map.getCenter()
+});
+// 지도에 마커를 표시합니다
+marker.setMap(map);
+
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
+
+        if (status === kakao.maps.services.Status.OK) {
+            var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+          // var testh=document.getElementById('test');
+            //testh.innerHTML=detailAddr;
+    // 클릭한 위도, 경도 정보를 가져옵니다
+            var latlng = mouseEvent.latLng;
+
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker.setPosition(latlng);
+marker.setMap(map);
+   // var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    //message += '경도는 ' + latlng.getLng() + ' 입니다';
+
+    //var resultDiv = document.getElementById('clickLatlng');
+    //resultDiv.innerHTML = message;
+    arr.push( result[0].address.region_3depth_name);
+    //var positionDiv=document.getElementById('position');
+   // positionDiv.innerHTML=arr;
+
+    var htpvar=document.getElementById('demo-name');
+    htpvar.value=arr;
+
+    console.log(result[0]);
+   var c= document.name.value;
+
+   c=arr;
+
+
+
+}
+    });
+});
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+}
+</script>
+
+   </body>
+</html>
