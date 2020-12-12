@@ -36,17 +36,7 @@ def method():
         pass
     elif request.method=='GET':
         temp=request.args.get('demo-name')
-        tmpli = temp.split(",")
-        new_list = []
-        for v in tmpli:
-            if v not in new_list:
-                new_list.append(v)
-        score = 0
-        li = []
-        for i in new_list:
-            li.append((d.data1(i) + d.data2(i)) / 2)
-        li.sort(reverse=True)
-        print(li)
+        print("asdasd")
         return (temp)
     #arr=request.form.get('demo-name')
     # print(arr)
