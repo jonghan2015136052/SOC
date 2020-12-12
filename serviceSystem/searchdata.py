@@ -6,7 +6,7 @@ mydb = pymysql.connect(
     charset='utf8'
 )
 cursor = mydb.cursor()
-
+#sdad
 #sql = """select *from landprice(idx, name, price)"""
 i = 1
 
