@@ -18,8 +18,8 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+					<header id="header" class="alt">
+						<a href="/index" class="logo"><strong>Open</strong> <span>Here</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -28,14 +28,10 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
+							<li><a href="/index">홈</a></li>
+							<li><a href="/landing">조건 입력</a></li>
+							<li><a href="/generic">API 명세</a></li>
+							<li><a href="/elements">기타</a></li>
 						</ul>
 					</nav>
 
@@ -50,12 +46,13 @@
 
 							<div class="row">
 								<div class="col-6 col-12-small">
+									<div style="margin-top:20px;margin-bottom:20px;">사용한 API 목록 </div>
 								<ul class="actions ">
 
 
-								<li><a href="#" class="button">google map api</a></li>
-								<li><a href="#" class="button">공시지가</a></li>
-								<li><a href="#" class="button">인구밀도</a></li>
+								<li><a class="button">KAKAO MAPS API</a></li>
+								<li><a class="button">공시지가</a></li>
+								<li><a class="button">인구밀도</a></li>
 
 								</ul>
 								</div>
@@ -74,48 +71,49 @@
 						<section id="two">
 								<div class="inner">
 									<header >
-										<h1>google map api</h1>
+										<h1>api 설명</h1>
 
 
 
 									</header>
-									<p>google map api 를 사용하여 사용자로부터 입력받은 위도 ,경도 값을 가져온다.</p>
-									<p>google map의 기능을 웹 플랫폼에 구현할 수 있도록 다양한 메서드와 라이브러리를 통해 서비스를 제공합니다.</p>
-									<h4>기능목록</h4>
-													<div class="table-wrapper">
+									<p>다수의 지역에 대한 행정동 값을 입력 받아 해당 동에 부합하는 공시지가와 인구밀도에 대한 점수를 계산해 순위를 산출하는 API입니다.</p>
+									<p>GET 방식으로 요청하면 응답은 JSON 형식으로 지원됩니다.</p>
+									<p>다양한 업종의 카테고리를 연계하여 업종의 분포도를 보는데 활용 가능합니다. <br>EX) 방배동 + 서점 , 서초동 + 서점 </p>
+									<p>&nbsp;</p>
+
+
+									<h3>▶ Request</h3>
+									<div style="margin-bottom:50px;">
+										<h3>&nbsp;&nbsp;URL</h3>
+										<code style="font-family: 'RobotoMono Regular', consolas, monospace;     line-height: 26px;   background: #1e1e1e;
+    color: #dcdcdc;">
+											<span>GET /method?demo-name={.format}
+
+
+												Host: http://13.209.127.22:5000
+												 </span>
+
+										</code>
+									</div>
+													<div class="table-wrapper" >
+														<h3>&nbsp;&nbsp;parameter</h3>
+
 														<table>
 															<thead>
 																<tr>
 																	<th>Name</th>
+																	<th>Type</th>
 																	<th>Description</th>
 
 																</tr>
 															</thead>
 															<tbody>
 																<tr>
-																	<td>주소검색</td>
-																	<td>특정 주소에 해당하는 장소 정보의 좌표검색</td>
+																	<td>area</td>
+																	<td>String</td>
+																	<td>사용자가 비교하고 싶은 지역</td>
 																</tr>
-																<tr>
-																	<td>좌표-행정구역정보 변환</td>
-																	<td>좌표값을 행정동,법정동으로 변환</td>
 
-																</tr>
-																<tr>
-																	<td>empty</td>
-																	<td> empty</td>
-
-																</tr>
-																<tr>
-																	<td>empty</td>
-																	<td>empty</td>
-
-																</tr>
-																<tr>
-																	<td>empty</td>
-																	<td>empty</td>
-
-																</tr>
 															</tbody>
 <!--															<tfoot>-->
 <!--																<tr>-->
@@ -131,49 +129,69 @@
 
 						<section id="thr">
 								<div class="inner">
-									<header >
-										<h1>2020년 공시지가</h1>
 
 
-
-									</header>
-									<p>2020년에 공시되어 있는 지가를 법정동(행정동)별로 저장되어 있다. </p>
-									<h4>기능목록</h4>
+									<h3>▶ Response</h3>
 													<div class="table-wrapper">
+														<h3>Meta</h3>
 														<table>
 															<thead>
 																<tr>
 																	<th>Name</th>
+																	<th>Type</th>
 																	<th>Description</th>
 
 																</tr>
 															</thead>
 															<tbody>
 																<tr>
-																	<td>Item1</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
+																	<td>total_count</td>
+																	<td>Integer</td>
+																	<td>점수가 산출된 지역의 수</td>
 
 																</tr>
+
+															</tbody>
+<!--															<tfoot>-->
+<!--																<tr>-->
+<!--																	<td colspan="2"></td>-->
+<!--																	<td>100.00</td>-->
+<!--																</tr>-->
+<!--															</tfoot>-->
+														</table>
+
+														<h3>AreaDocument</h3>
+														<table>
+															<thead>
 																<tr>
-																	<td>Item2</td>
-																	<td>Vis ac commodo adipiscing arcu aliquet.</td>
+																	<th>Name</th>
+																	<th>Type</th>
+																	<th>Description</th>
 
 																</tr>
+															</thead>
+															<tbody>
 																<tr>
-																	<td>Item3</td>
-																	<td> Morbi faucibus arcu accumsan lorem.</td>
+																	<td>동 이름</td>
+																	<td>String</td>
+																	<td>사용자가 비교하고 싶은 지역</td>
 
 																</tr>
-																<tr>
-																	<td>Item4</td>
-																	<td>Vitae integer tempus condimentum.</td>
+															<tr>
+																	<td>순위</td>
+																	<td>Integer</td>
+																	<td>사용자가 비교하고 싶은 지역의 순위</td>
 
 																</tr>
-																<tr>
-																	<td>Item5</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
+
+															<tr>
+																	<td>점수</td>
+																	<td>Double</td>
+																	<td>사용자가 비교하고 싶은 지역의 점수</td>
 
 																</tr>
+
+
 															</tbody>
 <!--															<tfoot>-->
 <!--																<tr>-->
@@ -188,58 +206,9 @@
 
 						<section id="four">
 								<div class="inner">
-									<header >
-										<h1>주민등록인구 및 세대 현황</h1>
 
 
 
-									</header>
-									<p>google map api 를 사용하여 사용자로부터 입력받은 위도 ,경도 값을 가져온다.</p>
-<h4>Default</h4>
-													<div class="table-wrapper">
-														<table>
-															<thead>
-																<tr>
-																	<th>Name</th>
-																	<th>Description</th>
-
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td>Item1</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-
-																</tr>
-																<tr>
-																	<td>Item2</td>
-																	<td>Vis ac commodo adipiscing arcu aliquet.</td>
-
-																</tr>
-																<tr>
-																	<td>Item3</td>
-																	<td> Morbi faucibus arcu accumsan lorem.</td>
-
-																</tr>
-																<tr>
-																	<td>Item4</td>
-																	<td>Vitae integer tempus condimentum.</td>
-
-																</tr>
-																<tr>
-																	<td>Item5</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-
-																</tr>
-															</tbody>
-<!--															<tfoot>-->
-<!--																<tr>-->
-<!--																	<td colspan="2"></td>-->
-<!--																	<td>100.00</td>-->
-<!--																</tr>-->
-<!--															</tfoot>-->
-														</table>
-													</div>
 								</div>
 						</section>
 
@@ -250,8 +219,6 @@
 
 
 						<div class="inner" >
-<!--								<h2 >google map api</h2>-->
-<!--									<h2>google map api</h2>-->
 
 
 
