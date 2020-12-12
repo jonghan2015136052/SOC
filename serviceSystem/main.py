@@ -1,6 +1,6 @@
 from flask import Flask,request, redirect, url_for, abort
 from flask import render_template
-import searchdata as d
+import importdata as d
 import json
 
 app = Flask(__name__)
@@ -49,11 +49,10 @@ def method():
         for i in new_list:
             name_li.append(i)
             score_li.append((d.data1(i) + d.data2(i)) / 2)
-
         tu = list(zip(name_li, score_li))
 
         tu.sort(key=lambda x:x[1], reverse=True)
-        dic = {"meta" : {"total_count" : len(score_li)}, "data" : []}
+        dic = {"meta" : {"total_count" : len(score_li)}, "AreaDocument" : []}
 
 
         for i in range(len(score_li)):
@@ -61,7 +60,7 @@ def method():
             tmp_dic["동이름"] = tu[i][0]
             tmp_dic["순위"] = i+1
             tmp_dic["점수"] = tu[i][1]
-            dic["data"].append(tmp_dic)
+            dic["AreaDocument"].append(tmp_dic)
         with open("jfile.json", "w", encoding = 'utf-8') as f:
             json.dump(dic, f)
         with open('jfile.json', 'r', encoding = 'utf-8') as f:
