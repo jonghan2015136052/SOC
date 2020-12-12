@@ -1,9 +1,9 @@
 import json
 import os
 
-with open(os.open('data1.json', os.O_WRONLY, 0o777), 'w', encoding='utf-8') as f:
+with open(os.open('data1.json', os.O_WRONLY, 0o777), 'r', encoding='utf-8') as f:
     data1 = json.load(f)
-with open(os.open('data2.json', os.O_WRONLY, 0o777), 'w', encoding='utf-8') as f:
+with open(os.open('data2.json', os.O_WRONLY, 0o777), 'r', encoding='utf-8') as f:
     data2 = json.load(f)
 li1 = []
 li2 = []
