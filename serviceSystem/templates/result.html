@@ -63,7 +63,13 @@
                                <h2>추천 순위 : </h2>
                            </header>
                            <p>선택하신 10개의 지역들 간의 추천 순위를 1위부터 나열합니다.</p>
-                           <p>1위 : <br>2위 : <br>3위 : <br>4위 : <br>5위 : <br>6위 : <br>7위 : <br>8위 : <br>9위 : <br>10위 : </p>
+
+                           <p>
+                              {% for i in range(total_count) %}
+                               {{ i+1 }} 위 : {{ tu[i][0] }}    &nbsp;&nbsp; 점수 : {{  tu[i][1] }}<br>
+
+                               {% endfor %}
+                           </p>
                        </div>
                    </section>
 

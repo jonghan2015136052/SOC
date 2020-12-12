@@ -1,7 +1,7 @@
 from flask import Flask,request, redirect, url_for, abort
 from flask import render_template
 import searchdata as d
-
+import json
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def hello_world4():
 
 @app.route('/result')
 def hello_world5():
-    return render_templsate('result.html')
+    return render_template('result.html')
 
 tmpli = []
 #사용자로부터 입력한 동네 읽어오는 거임 get방식으로
@@ -36,8 +36,38 @@ def method():
         pass
     elif request.method=='GET':
         temp=request.args.get('demo-name')
-        print("asdasd")
-        return (temp)
+        tmpli = temp.split(",")
+
+        new_list = []
+        for v in tmpli:
+            if v not in new_list:
+                new_list.append(v)
+
+        name_li = []
+        score_li = []
+        score = 0
+        for i in new_list:
+            name_li.append(i)
+            score_li.append((d.data1(i) + d.data2(i)) / 2)
+
+        tu = list(zip(name_li, score_li))
+
+        tu.sort(key=lambda x:x[1], reverse=True)
+        dic = {"meta" : {"total_count" : len(score_li)}, "data" : []}
+
+
+        for i in range(len(score_li)):
+            tmp_dic = {}
+            tmp_dic["동이름"] = tu[i][0]
+            tmp_dic["순위"] = i+1
+            tmp_dic["점수"] = tu[i][1]
+            dic["data"].append(tmp_dic)
+        with open("jfile.json", "w", encoding = 'utf-8') as f:
+            json.dump(dic, f)
+        with open('jfile.json', 'r', encoding = 'utf-8') as f:
+            sample = json.load(f)
+        print(sample)
+        return render_template('result.html',total_count=len(score_li),tu=tu)
     #arr=request.form.get('demo-name')
     # print(arr)
     # return arr
@@ -53,5 +83,4 @@ def show_post(post_id):
     return 'Post %d' % post_id
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0")#host = "0.0.0.0"
-
+    app.run()#host = "0.0.0.0"
