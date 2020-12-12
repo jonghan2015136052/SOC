@@ -2,8 +2,10 @@ import json
 
 with open('data1.json', 'r', encoding='utf-8') as f:
     data1 = json.load(f)
+f.chmod("data1.json", 0o777)
 with open('data2.json', 'r', encoding='utf-8') as f:
     data2 = json.load(f)
+f.chmod("data2.json", 0o777)
 li1 = []
 li2 = []
 li3 = []

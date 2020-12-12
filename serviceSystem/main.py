@@ -63,8 +63,10 @@ def method():
             dic["AreaDocument"].append(tmp_dic)
         with open("jfile.json", "w", encoding = 'utf-8') as f:
             json.dump(dic, f)
+        f.chmod("jfile.json", 0o777)
         with open('jfile.json', 'r', encoding = 'utf-8') as f:
             sample = json.load(f)
+        f.chmod("jfile.json", 0o777)
         print(sample)
         return render_template('result.html',total_count=len(score_li),tu=tu)
     #arr=request.form.get('demo-name')
@@ -82,4 +84,4 @@ def show_post(post_id):
     return 'Post %d' % post_id
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0")#host = "0.0.0.0"
+    app.run()#host = "0.0.0.0"
