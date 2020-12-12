@@ -1,11 +1,10 @@
 import json
 import os
-with open('data1.json', 'r', encoding='utf-8') as f:
+
+with open(os.open('data1.json', os.O_WRONLY, 0o777), 'w', encoding='utf-8') as f:
     data1 = json.load(f)
-os.chmod("data1.json", 0o777)
-with open('data2.json', 'r', encoding='utf-8') as f:
+with open(os.open('data2.json', os.O_WRONLY, 0o777), 'w', encoding='utf-8') as f:
     data2 = json.load(f)
-os.chmod("data2.json", 0o777)
 li1 = []
 li2 = []
 li3 = []

@@ -61,12 +61,10 @@ def method():
             tmp_dic["순위"] = i+1
             tmp_dic["점수"] = tu[i][1]
             dic["AreaDocument"].append(tmp_dic)
-        with open("jfile.json", "w", encoding = 'utf-8') as f:
+        with open(os.open('jfile.json', os.O_CREAT | os.O_WRONLY, 0o777), 'w', encoding='utf-8') as f:
             json.dump(dic, f)
-        os.chmod("jfile.json", 0o777)
-        with open('jfile.json', 'r', encoding = 'utf-8') as f:
+        with open(os.open('jfile.json', os.O_WRONLY, 0o777), 'r', encoding = 'utf-8') as f:
             sample = json.load(f)
-        os.chmod("jfile.json", 0o777)
         print(sample)
         return render_template('result.html',total_count=len(score_li),tu=tu)
     #arr=request.form.get('demo-name')
