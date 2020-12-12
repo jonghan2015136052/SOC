@@ -2,7 +2,7 @@ from flask import Flask,request, redirect, url_for, abort
 from flask import render_template
 import importdata as d
 import json
-
+import os
 app = Flask(__name__)
 
 
@@ -63,10 +63,10 @@ def method():
             dic["AreaDocument"].append(tmp_dic)
         with open("jfile.json", "w", encoding = 'utf-8') as f:
             json.dump(dic, f)
-        f.chmod("jfile.json", 0o777)
+        os.chmod("jfile.json", 0o777)
         with open('jfile.json', 'r', encoding = 'utf-8') as f:
             sample = json.load(f)
-        f.chmod("jfile.json", 0o777)
+        os.chmod("jfile.json", 0o777)
         print(sample)
         return render_template('result.html',total_count=len(score_li),tu=tu)
     #arr=request.form.get('demo-name')
