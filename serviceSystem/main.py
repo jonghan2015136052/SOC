@@ -62,7 +62,7 @@ def method():
             dic["AreaDocument"].append(tmp_dic)
         with open('jfile.json', 'w', encoding='utf-8') as f:
             json.dump(dic, f)
-        with open('jfile.json', 're', encoding='utf-8') as f:
+        with open('jfile.json', 'r', encoding='utf-8') as f:
             sample = json.load(f)
         print(sample)
         return render_template('result.html',total_count=len(score_li),tu=tu)
