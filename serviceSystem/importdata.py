@@ -23,11 +23,14 @@ def data1(input):
     j = 0
     for i in list(zip(li1, li2)):
         if(input in i[0]):
-            score += float(i[1])
+            score += 10 - float(i[1])
             j+=1
-    if(score !=0):
+    if(j !=0):
         score /= j
-    return score
+        return score
+    elif(j == 0):
+        return -1
+
 
 def data2(input):
     score = 0
@@ -37,6 +40,8 @@ def data2(input):
             score += float(i[1])
             print(score)
             j+=1
-    if (score != 0):
+    if (j != 0):
         score /= j
-    return score
+        return score
+    elif (j == 0):
+        return -1

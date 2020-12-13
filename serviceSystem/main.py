@@ -47,7 +47,12 @@ def method():
         score = 0
         for i in new_list:
             name_li.append(i)
-            score_li.append((d.data1(i) + d.data2(i)) / 2)
+            if (d.data1(i) == -1):
+                score_li.append(d.data2(i))
+            elif(d.data2(i) == -1):
+                score_li.append(d.data1(i))
+            else:
+                score_li.append((d.data1(i) + d.data2(i)) / 2)
         tu = list(zip(name_li, score_li))
 
         tu.sort(key=lambda x:x[1], reverse=True)
@@ -81,4 +86,4 @@ def show_post(post_id):
     return 'Post %d' % post_id
 
 if __name__ == '__main__':
-    app.run(host = "0.0.0.0")#host = "0.0.0.0"
+    app.run()#host = "0.0.0.0"
