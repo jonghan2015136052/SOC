@@ -7,24 +7,23 @@ app = Flask(__name__)
 
 
 @app.route('/index')
-def hello_world():
+def index():
     return render_template('index.html')
 
-@app.route('/test')
-def htest():
-    return render_template('test.html')
+@app.route('/select')
+def select():
+    return render_template('select.html')
 
-@app.route('/landing')
-def hello_world3():
-    return render_template('landing.html')
+@app.route('/aboutapi')
+def api_detail():
+    return render_template('aboutapi.html')
 
-@app.route('/generic')
-def hello_world4():
-    return render_template('generic.html')
-
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
 
 @app.route('/result')
-def hello_world5():
+def result():
     return render_template('result.html')
 
 tmpli = []
@@ -34,7 +33,7 @@ def method():
     if request.method=='POST':
         pass
     elif request.method=='GET':
-        temp=request.args.get('demo-name')
+        temp=request.args.get('get-name')
         tmpli = temp.split(",")
 
         new_list = []
