@@ -67,10 +67,16 @@
 
                               {% for i in range(total_count) %}
 
-                                <h4>{{ i+1 }} 위 :  &nbsp;&nbsp;{{ tu[i][0] }}    &nbsp;&nbsp;</h4> {% if tu[i][1] != -1 %}<p>점수 : {{  tu[i][1] }}<br></p>{% else %} <p> 서울시 한정 입력가능 합니다.<br></p>{% endif %}
+                                <h4>{{ i+1 }} 위 :  &nbsp;&nbsp;{{ tu[i][0] }}    &nbsp;&nbsp;</h4> <p>점수 : {{  tu[i][1] }}<br></p>
 
 
                                {% endfor %}
+
+                            <h2>json 형식 </h2>
+                           <code style="font-family: 'RobotoMono Regular', consolas, monospace;     line-height: 26px;
+    color: #dcdcdc;">
+                               {{ sample }}
+                           </code>
 
                        </div>
                    </section>
