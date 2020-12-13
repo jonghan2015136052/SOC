@@ -46,7 +46,7 @@
 
 							<div class="row">
 								<div class="col-6 col-12-small">
-									<div style="margin-top:20px;margin-bottom:20px;">사용한 API 목록 </div>
+									<div style="margin-top:20px;margin-bottom:20px;"><b>사용한 API</b></div>
 								<ul class="actions ">
 
 
@@ -56,13 +56,17 @@
 
 								</ul>
 								</div>
+
+
 							</div>
-<!--							<button><a href="#s"></a></button>-->
-<!--							<button><a href="#in">공시지가 api </a></button>-->
-<!--							<button><a href="#in2">인구밀도 </a></button>-->
-<!--							<button><a href="#in3">google api</a></button>-->
+										<div class="col-6 col-12-small">
+											<div style="margin-top:20px;margin-bottom:20px;"><b>제공 API(Ctrl + S)</b></div>
+								<ul class="actions ">
+								<li><a class="button" href="https://raw.githubusercontent.com/jonghan2015136052/SOC/master/serviceSystem/data1.json">공시지가</a></li>
+								<li><a class="button" href="https://raw.githubusercontent.com/jonghan2015136052/SOC/master/serviceSystem/data2.json">인구밀도</a></li>
 
-
+								</ul>
+								</div>
 									</header>
 
 								</div>
@@ -71,10 +75,7 @@
 						<section id="two">
 								<div class="inner">
 									<header >
-										<h1>api 설명</h1>
-
-
-
+										<h1>API 설명</h1>
 									</header>
 									<p>다수의 지역에 대한 행정동 값을 입력 받아 해당 동에 부합하는 공시지가와 인구밀도에 대한 점수를 계산해 순위를 산출하는 API입니다.</p>
 									<p>GET 방식으로 요청하면 응답은 JSON 형식으로 지원됩니다.</p>
@@ -87,7 +88,7 @@
 										<h3>&nbsp;&nbsp;URL</h3>
 										<code style="font-family: 'RobotoMono Regular', consolas, monospace;     line-height: 26px;   background: #1e1e1e;
     color: #dcdcdc;">
-											<span>GET /method?demo-name={.format}
+											<span>GET /method?get-name={.format}
 
 
 												Host: http://13.209.127.22:5000
@@ -96,7 +97,7 @@
 										</code>
 									</div>
 													<div class="table-wrapper" >
-														<h3>&nbsp;&nbsp;parameter</h3>
+														<h3>&nbsp;&nbsp;Parameter</h3>
 
 														<table>
 															<thead>
@@ -115,12 +116,6 @@
 																</tr>
 
 															</tbody>
-<!--															<tfoot>-->
-<!--																<tr>-->
-<!--																	<td colspan="2"></td>-->
-<!--																	<td>100.00</td>-->
-<!--																</tr>-->
-<!--															</tfoot>-->
 														</table>
 													</div>
 
@@ -129,8 +124,6 @@
 
 						<section id="thr">
 								<div class="inner">
-
-
 									<h3>▶ Response</h3>
 													<div class="table-wrapper">
 														<h3>Meta</h3>
@@ -140,7 +133,6 @@
 																	<th>Name</th>
 																	<th>Type</th>
 																	<th>Description</th>
-
 																</tr>
 															</thead>
 															<tbody>
@@ -148,16 +140,8 @@
 																	<td>total_count</td>
 																	<td>Integer</td>
 																	<td>점수가 산출된 지역의 수</td>
-
 																</tr>
-
 															</tbody>
-<!--															<tfoot>-->
-<!--																<tr>-->
-<!--																	<td colspan="2"></td>-->
-<!--																	<td>100.00</td>-->
-<!--																</tr>-->
-<!--															</tfoot>-->
 														</table>
 
 														<h3>AreaDocument</h3>
@@ -167,7 +151,6 @@
 																	<th>Name</th>
 																	<th>Type</th>
 																	<th>Description</th>
-
 																</tr>
 															</thead>
 															<tbody>
@@ -175,25 +158,18 @@
 																	<td>동 이름</td>
 																	<td>String</td>
 																	<td>사용자가 비교하고 싶은 지역</td>
-
 																</tr>
 															<tr>
 																	<td>순위</td>
 																	<td>Integer</td>
 																	<td>사용자가 비교하고 싶은 지역의 순위</td>
-
 																</tr>
-
 															<tr>
 																	<td>점수</td>
 																	<td>Double</td>
 																	<td>사용자가 비교하고 싶은 지역의 점수</td>
-
 																</tr>
-
-
 															</tbody>
-
 														</table>
 													</div>
 								</div>
@@ -201,9 +177,6 @@
 
 						<section id="four">
 								<div class="inner">
-
-
-
 								</div>
 						</section>
 
@@ -211,13 +184,7 @@
 
 				<!-- Contact -->
 					<section id="contact">
-
-
-						<div class="inner" >
-
-
-
-						</div>
+						<div class="inner" ></div>
 					</section>
 			</div>
 
