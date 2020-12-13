@@ -34,9 +34,9 @@
                <nav id="menu">
                   <ul class="links">
                      <li><a href="/index">홈</a></li>
-                     <li><a href="/landing">조건 입력</a></li>
-                     <li><a href="/generic">결과 보기</a></li>
-                     <li><a href="/elements">기타</a></li>
+                     <li><a href="/select">조건 입력</a></li>
+                     <li><a href="/aboutapi">API 명세</a></li>
+                     <li><a href="/aboutus">about us</a></li>
                   </ul>
                </nav>
 
@@ -62,14 +62,16 @@
                            <header class="major">
                                <h2>추천 순위 : </h2>
                            </header>
-                           <p>선택하신 10개의 지역들 간의 추천 순위를 1위부터 나열합니다.</p>
+                           <p>선택하신 {{total_count}}개의 지역들 간의 추천 순위를 1위부터 나열합니다.</p>
 
-                           <p>
+
                               {% for i in range(total_count) %}
-                               {{ i+1 }} 위 : {{ tu[i][0] }}    &nbsp;&nbsp; 점수 : {{  tu[i][1] }}<br>
+
+                                <h4>{{ i+1 }} 위 :  &nbsp;&nbsp;{{ tu[i][0] }}    &nbsp;&nbsp;</h4> <p>점수 : {{  tu[i][1] }}<br></p>
+
 
                                {% endfor %}
-                           </p>
+
                        </div>
                    </section>
 
@@ -83,12 +85,12 @@
                                    </header>
                                    <p>창업을 희망하는 점포의 업종을 입력해 주세요.<br>"동 단위 지역명 + 희망업종"의 형태로 입력해 주시면 됩니다.</p>
                                    <form onsubmit="searchPlaces(); return false;">
-                                   <input type="text" name="demo-name" id="demo-name" value="" placeholder="EX) 방배동 카페, 화곡동 돈가스, 남영동 삼겹살, 상도동 주유소, 창동 서점 등" style="margin-bottom: 20px;"/>
+                                   <input type="text" name="match-name" id="match-name" value="" placeholder="EX) 방배동 카페, 화곡동 돈가스, 남영동 삼겹살, 상도동 주유소, 창동 서점 등" style="margin-bottom: 20px;"/>
 
-<!--                                   <p><input type="text" name="name" id="local" /></p>-->
+
                                    <ul class="actions">
                                        <li><button type="submit" style="padding-">입력</button></li>
-<!--                                       <li><a  class="button" style ="padding-">입력</a></li>&lt;!&ndash;href="/method"&ndash;&gt;-->
+
                                    </ul>
                                    </form>
                                </div>
@@ -100,7 +102,7 @@
                    <section id="four" class="spotlights">
                        <div class="content">
                            <section>
-                          <div id="map" style="width:80%;height:500px;margin-left: 260px;margin-bottom:50px;"></div></section>
+                          <div id="map" style="height:500px;margin: 0 auto;width:80%;margin-bottom:50px;margin-top:50px;"></div></section><!--margin-left: 260px;-->
                        </div>
                    </section>
 
@@ -131,7 +133,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var ps = new kakao.maps.services.Places();
 
 function searchPlaces(){
-var userinput=document.getElementById('demo-name').value;
+var userinput=document.getElementById('match-name').value;
 
 // 키워드로 장소를 검색합니다
 ps.keywordSearch(userinput, placesSearchCB);
