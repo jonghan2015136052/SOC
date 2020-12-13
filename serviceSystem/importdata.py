@@ -23,7 +23,7 @@ def data1(input):
     j = 0
     for i in list(zip(li1, li2)):
         if(input in i[0]):
-            score += 10 - float(i[1])
+            score += float(i[1])
             j+=1
     if(j !=0):
         score /= j
