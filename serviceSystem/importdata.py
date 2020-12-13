@@ -1,6 +1,6 @@
 import json
 
-with open('data1.json', 'r', encoding='utf-8') as f:
+with open('data.json', 'r', encoding='utf-8') as f:
     data1 = json.load(f)
 with open('data2.json', 'r', encoding='utf-8') as f:
     data2 = json.load(f)
