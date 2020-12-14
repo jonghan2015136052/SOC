@@ -1,8 +1,8 @@
 import json
 
-with open('data.json', 'r', encoding='utf-8') as f:
+with open('final/SOC/serviceSystem/data.json', 'r', encoding='utf-8') as f:
     data1 = json.load(f)
-with open('data2.json', 'r', encoding='utf-8') as f:
+with open('final/SOC/serviceSystem/data2.json', 'r', encoding='utf-8') as f:
     data2 = json.load(f)
 li1 = []
 li2 = []
